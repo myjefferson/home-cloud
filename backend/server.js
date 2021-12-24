@@ -7,8 +7,8 @@ const rimraf = require('rimraf')
 const mime = require('mime');
 const dirTree = require("directory-tree")
 const formidable = require('formidable')
-const fs = require('fs').promises
-const fsalt = require('fs')
+const fsalt = require('fs').promises
+const fs = require('fs')
 const mysql = require('mysql')
 const { static } = require('express')
 const app = express()
@@ -74,8 +74,8 @@ app.get('/diskspace', (req,res) => {
 //DETECT CREATED PRINCIPAL PASTA
 const pasta = "../cloud"
 function Pasta(){
-    if(!fsalt.existsSync(pasta)){
-        fsalt.mkdirSync(pasta)
+    if(!fs.existsSync(pasta)){
+        fs.mkdirSync(pasta)
     }
 }Pasta();
 
@@ -110,9 +110,9 @@ app.post('/upload', upload.array('files'), async (req, res, next) => {
 app.post('/createFolder', (req,res) => {
     const {name} = req.query
     console.log(name)
-    if(!fsalt.existsSync(`../${currentDir}/${name}`)){
+    if(!fs.existsSync(`../${currentDir}/${name}`)){
         //console.log("Pasta criada")
-        fsalt.mkdirSync(`../${currentDir}/${name}`)
+        fs.mkdirSync(`../${currentDir}/${name}`)
         updateArea(req, res) //Update Array Current Dir
     }else{
         //console.log("Erro ao criar pasta")
@@ -133,23 +133,34 @@ function updateArea(req, res){
             arquivos = [];
         }
 
-        let listReadFiles = await fs.readdir(diretorio);
+        let listReadFiles = await fsalt.readdir(diretorio);
         for(let num in listReadFiles){
-            let stat = await fs.stat(diretorio + '/' + listReadFiles[num])
+            let stat = await fsalt.stat(diretorio + '/' + listReadFiles[num])
             if(stat.isDirectory()){
                 //await listFiles(diretorio + '/'+ listReadFiles[k], arquivos)
                 arquivos.push({
                     name: listReadFiles[num],
                     type: 1, //pasta
-                    extension: "pasta",
+                    extension: "pasta"
                 })
             }else{ 
                 const extFile = path.extname(listReadFiles[num]);
-                arquivos.push({
-                    name: path.basename(listReadFiles[num], extFile),
-                    type: 0, //don't pasta
-                    extension: extFile.replace(".",""),
-                });
+                
+                if(extFile.replace(".","") === "jpg" || "jpeg" || "png" || "svg"){
+                    const base64 = fs.readFileSync(diretorio + '/' + listReadFiles[num], {encoding: 'base64'});
+                    arquivos.push({
+                        name: path.basename(listReadFiles[num], extFile),
+                        type: 0, //don't pasta
+                        extension: extFile.replace(".",""),
+                        blob: `data:image/${extFile.replace(".","")};base64,${base64}`
+                    });
+                }else{
+                    arquivos.push({
+                        name: path.basename(listReadFiles[num], extFile),
+                        type: 0, //don't pasta
+                        extension: "~/path/"+extFile.replace(".","")
+                    });
+                }
                 //arquivos.push(diretorio + '/' + listReadFiles[num])
             }
         }
@@ -178,7 +189,7 @@ app.get('/download',
                 'Content-Type': mimetype,
             })
 
-            const stream = fsalt.createReadStream(fileURL)
+            const stream = fs.createReadStream(fileURL)
             stream.pipe(res)
         }catch (e){
             console.error(e)
@@ -194,7 +205,7 @@ app.delete(`/delete`, (req,res) => {
 
     if(verifyExt != ""){
         //console.log("é um arquivo")
-        fsalt.unlinkSync(`../${dir}`);
+        fs.unlinkSync(`../${dir}`);
     }else{
         //console.log("é uma pasta")
         rimraf(`../${dir}`, function () {

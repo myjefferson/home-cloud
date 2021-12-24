@@ -50,6 +50,15 @@ export const LiFile = styled.li`
         width: 100%;
     }
 
+    .img-miniature{
+        overflow: hidden;
+        object-fit: cover;
+        object-position: center;
+        height: 160px;
+        border-radius: 18px;
+        background: #e0e0e0;
+    }
+
     p{
         white-space: nowrap;
         overflow: hidden;
@@ -59,5 +68,4 @@ export const LiFile = styled.li`
         width: 100%;
         margin: 5px 0 7px 0;
     }
-
 `

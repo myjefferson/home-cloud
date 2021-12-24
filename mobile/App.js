@@ -1,112 +1,106 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, { Component, useRef } from 'react'
+import { View, StyleSheet, NativeModules, SafeAreaView, Button, Text } from 'react-native'
+import {WebView} from 'react-native-webview'
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
+let downloadDocument = async (downloadUrl) => {
+   let fileURI = await downloadAsync(
+      downloadUrl,
+      `${documentDirectory}name.pdf`,
+      {},
+   );
+   await onShare(fileURI.uri);
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+const onShare = async (url) => {
+   try {
+     return Share.share({
+       message: 'Choose location to save pdf file',
+       url: url,
+     });
+   } catch (error) {
+     return error;
+   }
+ };
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+export default props => {
+   const webViewRef = useRef(null)
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+   const goback = () => {
+      webViewRef.current.goBack();
+   }
+
+   const goforward = () => {
+      webViewRef.current.goForward();
+   }
+
+   return (
+      <SafeAreaView style = {styles.container}>
+         <WebView
+            ref={webViewRef}
+            startInLoadingState={true}
+            allowUniversalAccessFromFileURLs={true}
+            javaScriptEnabled={true}
+            mixedContentMode={'always'}
+            originWhitelist={["*"]}
+            useWebKit
+            source = {{ 
+               uri: `192.168.15.7:3000` 
+            }}
+            domStorageEnabled={true}
+            allowFileAccess={true}
+            allowUniversalAccessFromFileURLs={true}
+            allowingReadAccessToURL={true}
+            onFileDownload={({ nativeEvent: { downloadUrl } }) =>
+               downloadDocument(downloadUrl)
+            }
+         />
+         <View style={styles.pagination}>
+            <Text style={styles.back}  onPress={goback}>Voltar</Text>
+            <Text style={styles.forward} onPress={goforward}>Avançar</Text>
+         </View>
+      </SafeAreaView>
+   )
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+   container: {
+      height: "100%",
+   },
+   navbar: {
+      height: 40,
+      width: "100%",
+      flexDirection: "row-reverse",
+      paddingTop: 6,
+      backgroundColor: "#fefefe",
+      borderTopColor: "grey",
+      borderTopWidth: 1,
+    },
+    back: {
+      width: 100,
+      height: 45,
+      padding: 9,
+      fontSize: 16,
+      borderRadius: 100,
+      paddingBottom: 20,
+      textAlign: "center",
+      backgroundColor: '#1070ff',
+      color: "#FFF",
+    },
+    forward: {
+      width: 100,
+      height: 45,
+      padding: 9,
+      fontSize: 16,
+      borderRadius: 100,
+      textAlign: "center",
+      backgroundColor: '#1070ff',
+      color: "#FFF",
+    },
+    pagination: {
+      flexGrow: 1,
+      flexDirection: "row",
+      display: "flex",
+      position: "absolute",
+      bottom: 70,
+    }
+})

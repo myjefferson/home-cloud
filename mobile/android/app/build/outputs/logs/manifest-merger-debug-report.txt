@@ -8,6 +8,10 @@ MERGED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src
 MERGED from [com.facebook.flipper:flipper:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\2c29b736c8f2a9d82fade7115b471d70\transformed\jetified-flipper-network-plugin-0.99.0\AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\e3a733608d857c466939da27af54ba77\transformed\jetified-flipper-fresco-plugin-0.99.0\AndroidManifest.xml:8:1-15:12
+MERGED from [:react-native-fs] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-45:12
 MERGED from [com.facebook.react:react-native:0.66.3] C:\Users\Jeff\.gradle\caches\transforms-3\99c79909af811e582454611bbe366c33\transformed\jetified-react-native-0.66.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Jeff\.gradle\caches\transforms-3\9341f36f0ce470d4b55127e33c2ce075\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r250230] C:\Users\Jeff\.gradle\caches\transforms-3\7873a5158addb5bf75ec8bc5226b9f2a\transformed\jetified-android-jsc-r250230\AndroidManifest.xml:2:1-11:12
@@ -34,6 +38,7 @@ MERGED from [com.facebook.fresco:ui-common:2.5.0] C:\Users\Jeff\.gradle\caches\t
 MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\Jeff\.gradle\caches\transforms-3\262def0251b4f6c882149d15641ff92b\transformed\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Jeff\.gradle\caches\transforms-3\57e3d46cd409853c916c88a2c3ae94fd\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Jeff\.gradle\caches\transforms-3\db0f9dfc2cb9e58d20874cad38a46146\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Jeff\.gradle\caches\transforms-3\be421ef5c9cb65032068b6cd3865fbe1\transformed\webkit-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.3.4] C:\Users\Jeff\.gradle\caches\transforms-3\d29e2b008fda9570dcb20a45a8889feb\transformed\fragment-1.3.4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.2.3] C:\Users\Jeff\.gradle\caches\transforms-3\2845ad8d4ac5308576a5eb6f72ea168d\transformed\jetified-activity-1.2.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Jeff\.gradle\caches\transforms-3\6fa7b39b5df705c5310dc54c9428ddb2\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -79,12 +84,20 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src\main\AndroidManifest.xml:4:5-67
 MERGED from [com.facebook.flipper:flipper:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:15:5-67
 MERGED from [com.facebook.flipper:flipper:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:15:5-67
+MERGED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-67
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-67
 	android:name
 		ADDED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src\main\AndroidManifest.xml:4:22-64
 application
 ADDED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src\main\AndroidManifest.xml:6:5-24:19
 MERGED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src\main\AndroidManifest.xml:6:5-24:19
 MERGED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
+MERGED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:5-43:19
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:5-43:19
 MERGED from [com.facebook.react:react-native:0.66.3] C:\Users\Jeff\.gradle\caches\transforms-3\99c79909af811e582454611bbe366c33\transformed\jetified-react-native-0.66.3\AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.react:react-native:0.66.3] C:\Users\Jeff\.gradle\caches\transforms-3\99c79909af811e582454611bbe366c33\transformed\jetified-react-native-0.66.3\AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\Jeff\.gradle\caches\transforms-3\4c346baed8905fc786ccf697aebc99f4\transformed\jetified-soloader-0.10.1\AndroidManifest.xml:11:5-20
@@ -151,6 +164,14 @@ MERGED from [com.facebook.flipper:flipper-network-plugin:0.99.0] C:\Users\Jeff\.
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\2c29b736c8f2a9d82fade7115b471d70\transformed\jetified-flipper-network-plugin-0.99.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\e3a733608d857c466939da27af54ba77\transformed\jetified-flipper-fresco-plugin-0.99.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\e3a733608d857c466939da27af54ba77\transformed\jetified-flipper-fresco-plugin-0.99.0\AndroidManifest.xml:11:5-13:41
+MERGED from [:react-native-fs] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-fs] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.66.3] C:\Users\Jeff\.gradle\caches\transforms-3\99c79909af811e582454611bbe366c33\transformed\jetified-react-native-0.66.3\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.66.3] C:\Users\Jeff\.gradle\caches\transforms-3\99c79909af811e582454611bbe366c33\transformed\jetified-react-native-0.66.3\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Jeff\.gradle\caches\transforms-3\9341f36f0ce470d4b55127e33c2ce075\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -203,6 +224,8 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Jef
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Jeff\.gradle\caches\transforms-3\57e3d46cd409853c916c88a2c3ae94fd\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Jeff\.gradle\caches\transforms-3\db0f9dfc2cb9e58d20874cad38a46146\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Jeff\.gradle\caches\transforms-3\db0f9dfc2cb9e58d20874cad38a46146\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Jeff\.gradle\caches\transforms-3\be421ef5c9cb65032068b6cd3865fbe1\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Jeff\.gradle\caches\transforms-3\be421ef5c9cb65032068b6cd3865fbe1\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.3.4] C:\Users\Jeff\.gradle\caches\transforms-3\d29e2b008fda9570dcb20a45a8889feb\transformed\fragment-1.3.4\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.3.4] C:\Users\Jeff\.gradle\caches\transforms-3\d29e2b008fda9570dcb20a45a8889feb\transformed\fragment-1.3.4\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.2.3] C:\Users\Jeff\.gradle\caches\transforms-3\2845ad8d4ac5308576a5eb6f72ea168d\transformed\jetified-activity-1.2.3\AndroidManifest.xml:20:5-22:41
@@ -263,5 +286,55 @@ ADDED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src\
 		ADDED from C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\android\app\src\debug\AndroidManifest.xml:11:19-83
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [com.facebook.flipper:flipper:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:5-76
+MERGED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-76
+MERGED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-76
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:5-76
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:5-76
 	android:name
 		ADDED from [com.facebook.flipper:flipper:0.99.0] C:\Users\Jeff\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:16:22-73
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:react-native-fs] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:5-81
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:5-81
+	android:name
+		ADDED from [:react-native-fs] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-79
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:5-79
+MERGED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:5-79
+	android:name
+		ADDED from [:react-native-network-info] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-network-info\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-76
+provider#com.reactnativecommunity.webview.RNCWebViewFileProvider
+ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+	android:grantUriPermissions
+		ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+	android:authorities
+		ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-64
+	android:exported
+		ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+	android:name
+		ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-83
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:63
+	android:resource
+		ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-60
+	android:name
+		ADDED from [:react-native-webview] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+uses-permission#com.android.vending.CHECK_LICENSE
+ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-73
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-70
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:5-68
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:22-65
+provider#com.RNFetchBlob.Utils.FileProvider
+ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:9-42:20
+	android:grantUriPermissions
+		ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:38:13-47
+	android:authorities
+		ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-60
+	android:exported
+		ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:13-37
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\Jeff\MyJeff\CODE\byGitHub\home-cloud\mobile\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:13-62
