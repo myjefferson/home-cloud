@@ -39,10 +39,13 @@
 <p>A seguir, será apresentado o desenho das telas do sistema web. O layout foi desenvolvido no Figma</p>
 <img src="intro/int-7.png" style="border: 1px solid #e1e1e1; width: 100%;">
 
-| Hex | Colors | 
-|----------|:-------------:| 
-| ![#1070FF](https://via.placeholder.com/15/1070FF/000000?text=+) `#1070FF` | Blue |
+<h3>Cores Utilizadas</h3>
 
+| Cores | Hex |
+|-------------| 
+| ![#1070FF](https://via.placeholder.com/15/1070FF/000000?text=+) `#1070FF` |
+| ![#38007E](https://via.placeholder.com/15/38007E/000000?text=+) `#38007E` |
+| ![#5F00D7](https://via.placeholder.com/15/5F00D7/000000?text=+) `#5F00D7` |
 </hr>
 <h2>Iniciando o BackEnd (servidor)</h2>
 <p>Após instalado as ferramentas citadas nos pré-requisitos:</p>
