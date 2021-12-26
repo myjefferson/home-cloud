@@ -96,4 +96,5 @@
     # Pronto! A nossa aplicação web foi iniciado e pronto para uso.
 ```
 </hr>
+
 <p align="center">Desenvolvido com 💙 por <strong><a href="https://github.com/myjefferson">Jefferson Carvalho</a></strong></p>
