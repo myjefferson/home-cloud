@@ -3,7 +3,7 @@
 <h5 style="text-align: center;"><i>Projeto em Desenvolvimento</i></h5>
 <h1>Sobre</h1>
 <p>O sistema web <i><strong>Home Cloud</strong></i> pode facilitar o compartilhamento de arquivos acessando a mesma rede local. Na imagem a seguir, podemos ver a tela principal com alguns itens já adicionados.</p>
-<img src="intro/int-2.png" style="border: 1px solid #e1e1e1; width: 100%;">
+<img src="./frontend/src/assets/screens/screen-1.png" style="border: 1px solid #e1e1e1; width: 100%;">
 <h1>Tecnologias Utilizadas</h1>
 <ul>
     <li>ReactJS</li>
@@ -37,7 +37,7 @@
 
 <h2>Layout</h2>
 <p>A seguir, será apresentado o desenho das telas do sistema web. O layout foi desenvolvido no Figma</p>
-<img src="intro/int-7.png" style="border: 1px solid #e1e1e1; width: 100%;">
+<img src="./frontend/src/assets/screens/screen-4.png" style="border: 1px solid #e1e1e1; width: 100%;">
 
 <h3>Cores Utilizadas</h3>
 
