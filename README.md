@@ -58,7 +58,7 @@
     <li>Agora vamos utilizar o terminal do VS Code para os comando a seguir.</li>
 </ul>
 
-`
+```
     # Clone este repositório
     $ git clone https://github.com/myjefferson/home-cloud.git
 
@@ -75,12 +75,12 @@
     $ npm run dev
 
     # Pronto! O nosso servidor foi iniciado.
-`
+```
 
 <h2>Iniciando a aplicação web (Frontend)</h2>
 <p>Utilize um novo terminal no VS Code e siga os seguintes comandos:</p>
 
-`
+```
     # Acesse a pasta do projeto
     $ cd home-cloud
 
@@ -94,6 +94,6 @@
     $ npm run start
 
     # Pronto! A nossa aplicação web foi iniciado e pronto para uso.
-`
+```
 
 <p><i>Desenvolvimento e Design - <strong>Jefferson Carvalho</strong></i></p>
