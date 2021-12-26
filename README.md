@@ -35,22 +35,22 @@
 </ul>
 
 `
-# Clone este repositório
-$ git clone https://github.com/myjefferson/home-cloud.git
+    # Clone este repositório
+    $ git clone https://github.com/myjefferson/home-cloud.git
 
-# Acesse a pasta do projeto no seu terminal/cmd
-$ cd README-ecoleta
+    # Acesse a pasta do projeto no seu terminal/cmd
+    $ cd README-ecoleta
 
-# Vá para a pasta da aplicação Front End
-$ cd web
+    # Vá para a pasta da aplicação Front End
+    $ cd web
 
-# Instale as dependências
-$ npm install
+    # Instale as dependências
+    $ npm install
 
-# Execute a aplicação em modo de desenvolvimento
-$ npm run start
+    # Execute a aplicação em modo de desenvolvimento
+    $ npm run start
 
-# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+    # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 `
 
 
