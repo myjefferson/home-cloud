@@ -41,7 +41,7 @@
 
 <h3>Cores Utilizadas</h3>
 
-| Cores | Hex |
+| Cores - Hex |
 |-------------| 
 | ![#1070FF](https://via.placeholder.com/15/1070FF/000000?text=+) `#1070FF` |
 | ![#38007E](https://via.placeholder.com/15/38007E/000000?text=+) `#38007E` |
