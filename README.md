@@ -96,4 +96,4 @@
     # Pronto! A nossa aplicação web foi iniciado e pronto para uso.
 ```
 
-<p align="center"><i>Desenvolvimento e Design - <strong>Jefferson Carvalho</strong></i></p>
+<p align="center">Desenvolvido com 💙 por <strong><a href="https://github.com/myjefferson">Jefferson Carvalho</a></strong></p>
