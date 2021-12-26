@@ -12,13 +12,17 @@
     <li>MySQL</li>
 </ul>
 <h1>Executando o Projeto</h1>
+
 <p>Este projeto é dividido em duas parte (por enquanto):</p>
+
 <ol>
     <li>Backend (pasta de servidor)</li>
     <li>Frontend (pasta web)</li>
     <li>Mobile <i>(em desenvolvimento)</i></li>
 </ol>
+
 <p>O Backend é a parte mais importante, para fazer funcionar o frontend.</p>
+
 <h2>Pré-requisitos</h2>
 <p>Você vai precisar ter instalado em sua máquina as seguintes ferramentas:</p>
 <ul>
@@ -26,23 +30,56 @@
     <li>Visual Studio Code</li>
     <li>Yarn (ou NPM)</li>
     <li>MySQL (ou um pacote de servidores como XAMPP por exemplo)</li>
+    <li>Git</li>
 </ul>
+
+</hr>
+
+<h2>Layout</h2>
+<p>A seguir, será apresentado o desenho das telas do sistema web. O layout foi desenvolvido no Figma</p>
+<img src="intro/int-7.png" style="border: 1px solid #e1e1e1; width: 100%;">
+
+| Hex | Colors | 
+|----------|:-------------:| 
+| ![#1070FF](https://placehold.it/15/1070FF/000000?text=+) | left-aligned |
+
+</hr>
 <h2>Iniciando o BackEnd (servidor)</h2>
 <p>Após instalado as ferramentas citadas nos pré-requisitos:</p>
 <ul>
     <li>Crie uma pasta no local onde deseja instalar o Home Cloud.</li>
     <li>Após isso, com o VS Code aberto, vá em <strong>Arquivo</strong> > <strong>Abrir Pasta</strong> e selecione a pasta que você criou.</li>
+    <li>Agora vamos utilizar o terminal do VS Code para os comando a seguir.</li>
 </ul>
 
 `
     # Clone este repositório
     $ git clone https://github.com/myjefferson/home-cloud.git
 
-    # Acesse a pasta do projeto no seu terminal/cmd
-    $ cd README-ecoleta
+    # Acesse a pasta do projeto
+    $ cd home-cloud
 
-    # Vá para a pasta da aplicação Front End
-    $ cd web
+    # Vá para a pasta da aplicação Backend
+    $ cd backend
+
+    # Instale as dependências
+    $ npm install
+
+    # Execute a aplicação em modo de desenvolvimento
+    $ npm run dev
+
+    # Pronto! O nosso servidor foi iniciado.
+`
+
+<h2>Iniciando a aplicação web (Frontend)</h2>
+<p>Utilize um novo terminal no VS Code e siga os seguintes comandos:</p>
+
+`
+    # Acesse a pasta do projeto
+    $ cd home-cloud
+
+    # Vá para a pasta da aplicação Backend
+    $ cd frontend
 
     # Instale as dependências
     $ npm install
@@ -50,8 +87,5 @@
     # Execute a aplicação em modo de desenvolvimento
     $ npm run start
 
-    # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+    # Pronto! A nossa aplicação web foi iniciado e pronto para uso.
 `
-
-
-
