@@ -41,7 +41,7 @@
 
 | Hex | Colors | 
 |----------|:-------------:| 
-| ![#1070FF](https://placehold.it/15/1070FF/000000?text=+) | left-aligned |
+| ![#1070FF](https://via.placeholder.com/15/1070FF/000000?text=+) `#1070FF` | Blue |
 
 </hr>
 <h2>Iniciando o BackEnd (servidor)</h2>
