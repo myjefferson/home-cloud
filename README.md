@@ -1,5 +1,5 @@
 <h1 align="center" title="logo HOME CLOUD"><img style="width: 120px;" src="frontend/src/assets/img/logo-home-cloud-blue.svg" alt="HOME CLOUD"></h1>
-<h3>Home Cloud é um microprojeto pessoal voltado para pessoas que desejam fazer um armazenamento de arquivos de "nuvem" em casa.</h3>
+<h3><i>Home Cloud</i> é um sistema voltado para pessoas que desejam fazer um armazenamento de arquivos de "nuvem" em casa.</h3>
 <h5 style="text-align: center;"><i>Projeto em Desenvolvimento</i></h5>
 <h1>Sobre</h1>
 <p>O sistema web <i><strong>Home Cloud</strong></i> pode facilitar o compartilhamento de arquivos acessando a mesma rede local. Na imagem a seguir, podemos ver a tela principal com alguns itens já adicionados.</p>
