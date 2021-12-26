@@ -59,6 +59,11 @@ export const LiFile = styled.li`
         background: #e0e0e0;
     }
 
+    .preview-image{
+        width: 100%;
+        height: 100%;
+    }
+
     p{
         white-space: nowrap;
         overflow: hidden;

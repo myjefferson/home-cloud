@@ -74,9 +74,19 @@ export default function MyCloud(){
     
     function filePreview(ext){
         if(ext === "jpg" || ext === "png"){
-            return <img src={preview} alt="Erro na imagem" className="preview-image" style={{width: "100%", borderRadius: "8px",background: "f1f1f1"}}/>
+            return <img 
+                        src={preview} 
+                        alt="Erro na imagem" 
+                        className="preview-image" 
+                        style={{
+                            width: "100%", 
+                            borderRadius: "8px",
+                            background: "f1f1f1"}}
+                    />
         }else if(ext === "mp3" || ext === "m4a" || ext === "wav" || ext === "aac"){
-            return <div className="content-audio"><audio controls src={preview} /></div>
+            return <div className="content-audio">
+                        <audio controls src={preview} />
+                    </div>
         }else{
             //void
         }
@@ -116,10 +126,10 @@ export default function MyCloud(){
                                                     <>
                                                         <div className="isolation">
                                                             <FileOptions className="options-menu" typeFile="" file={`${file.name}.${file.extension}`} />
-                                                            <button title={file.name} variant="outlined" color="primary" onClick={() => {setPreview(file.blob); setExt(file.extension); handlePreviewOpen()}}> 
+                                                            <button title={file.name} variant="outlined" color="primary" onClick={() => {setPreview(`${file.base64}`); setExt(file.extension); handlePreviewOpen()}}> 
                                                                 {
                                                                     file.extension === "jpg" || file.extension === "jpeg" || file.extension === "png" || file.extension === "svg"
-                                                                    ?   <img className='img-ext img-miniature' src={`${file.blob}`} alt=""/>
+                                                                    ?   <img className='img-ext img-miniature' src={ file.base64 } alt=""/>
                                                                     :   <img className="img-ext" src={`./img/extensions/${file.extension}.png`} alt=""/>
                                                                 }                                                                              
                                                             </button>                                                           
@@ -161,19 +171,18 @@ export default function MyCloud(){
                                     Fechar <CloseIcon/>
                                 </Button>
                             </DialogTitle>
-                                <DialogContent>
-                                    <DialogContentText
-                                        style={{
-                                            width: "100%",
-                                            height: "100%",
-                                            margin: 0,
-                                            display: "flex",
-                                            justifyContent: "center",
-                                            alignItems: "center",
-                                        }}
-                                    >
-                                        { filePreview(ext) }
-                                    </DialogContentText>
+                                <DialogContent
+                                    style={{
+                                        position: "relative",
+                                        minWidth: "350px",
+                                        
+                                        margin: 0,
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                >  
+                                    { filePreview(ext) }
                                 </DialogContent>
                             <DialogActions>
                             

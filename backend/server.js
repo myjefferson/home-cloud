@@ -14,6 +14,7 @@ const { static } = require('express')
 const app = express()
 const axios = require('axios')
 const { Stream } = require('stream')
+const sharp = require('sharp');
 const Sequelize = require('sequelize')
 const { User, Config } = require('./models/ConfigTables')
 const sequelize = require('./models/conection')
@@ -149,18 +150,34 @@ function updateArea(req, res){
                 const base64 = fs.readFileSync(diretorio + '/' + listReadFiles[num], {encoding: 'base64'});
                 
                 if(ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "svg"){
-                    arquivos.push({
-                        name: path.basename(listReadFiles[num], extFile),
-                        type: 0, //don't pasta
-                        extension: extFile.replace(".",""),
-                        blob: `data:image/${extFile.replace(".","")};base64,${base64}`
-                    });
+                    //compress images
+                    var buffer = Buffer.from(base64, 'base64')
+                    await sharp(buffer)
+                        .resize(400)
+                        .toBuffer()
+                        .then(resizedImageBuffer => {
+                            var resizedImageData = resizedImageBuffer.toString('base64');
+                            arquivos.push({
+                                name: path.basename(listReadFiles[num], extFile),
+                                type: 0, //don't pasta
+                                extension: extFile.replace(".",""),
+                                base64: `data:image/${ext};base64,${resizedImageData}`,
+                            });
+                        }).catch(error =>{
+                            arquivos.push({
+                                name: path.basename(listReadFiles[num], extFile),
+                                type: 0, //don't pasta
+                                extension: extFile.replace(".",""),
+                                base64: `./img/extensions/${ext}.png`,
+                            });
+                        })
+                   
                 }else if(ext === "mp3" || ext === "m4a" || ext === "wav" || ext === "aac"){
                     arquivos.push({
                         name: path.basename(listReadFiles[num], extFile),
                         type: 0, //don't pasta
                         extension: extFile.replace(".",""),
-                        blob: `data:audio/${extFile.replace(".","")};base64,${base64}`
+                        base64: `data:audio/${extFile.replace(".","")};base64,${base64}`
                     });
                 }else{
                     arquivos.push({

@@ -2,6 +2,7 @@
 /backend/node_modules
 /frontend/node_modules
 /mobile/node_modules
+/cloud/
 
 #except yarn.lock
 /backend/yarn.lock
