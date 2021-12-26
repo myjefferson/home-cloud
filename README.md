@@ -96,4 +96,4 @@
     # Pronto! A nossa aplicação web foi iniciado e pronto para uso.
 ```
 
-<p style="text-align: center; width: 100%"><i>Desenvolvimento e Design - <strong>Jefferson Carvalho</strong></i></p>
+<p align="center"><i>Desenvolvimento e Design - <strong>Jefferson Carvalho</strong></i></p>
