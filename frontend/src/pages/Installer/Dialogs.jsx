@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo_home_installer from '../../assets/img/home-installer-logo.png'
 import api from '../../services/api'
 
-export default props => {
+export default ({dialog}) => {
     const [diskspace, setDiskSpace] = useState("");
 
     //const [inputGeralDir, setDiskSpace] = useState("");
@@ -26,10 +26,10 @@ export default props => {
         })
     },[])
 
-    if(props.dialog == 0){
+    if(dialog === 0){
         return  <div className='principal'>
                     <div className="header">
-                        <img src={logo_home_installer}/>
+                        <img src={logo_home_installer} alt=""/>
                         <h2><strong>Bem-vindo(a) ao instalador Home Cloud</strong></h2>
                         <p>Vamos começar  configurando o armazenamento</p>
                     </div>
@@ -56,17 +56,17 @@ export default props => {
                 </div>
                 <p className='text-warning'><strong>Você tem {diskspace}GB de espaço no disco local</strong></p>
             </>
-    }*/else if(props.dialog == 1){
+    }*/else if(dialog === 1){
         return <>
                 { insertInstall() }
                 <div className="header">
-                    <img src={logo_home_installer}/>
+                    <img src={logo_home_installer} alt=""/>
                     <h2><strong>Instalação completa</strong></h2>
                     <p>Vamos começar!</p>
                 </div>
                 <p>Se você precisou alterar algo anteriormente <strong>fique tranquilo</strong>, você consegue alterar tudo no painel de configurações.</p>
             </>
-    }else if(props.dialog == 2){
+    }else if(dialog === 2){
         window.location.href = "/Welcome";
     }
 }

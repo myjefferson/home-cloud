@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {Content, Developer} from './style/installer'
 import Dialogs from './Dialogs'
 import api from '../../services/api'
 
-export default props =>{
+export default function Installer(){
     const [dialog, setDialog] = useState(0)
-    var count = 0;
 
     //Verify Installer
     api.get('/verifyInstall').then(res => {
-        if(res.data.installed != false){
+        if(res.data.installed !== false){
             window.location.href = "/Welcome";
         }else{
             return (

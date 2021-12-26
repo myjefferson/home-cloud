@@ -124,7 +124,7 @@ export default function OptionAdd(files, setFiles) {
         }}
       >
         <MenuItem onClick={() => {handleClose(); handleClickOpenDialog()}}><CreateNewFolder style={{marginRight: 10}}/> Criar Pasta</MenuItem>
-        <MenuItem onClick={handleClose, onInputUpload}>
+        <MenuItem onClick={() => {handleClose(); onInputUpload()}}>
           <CloudUploadIcon style={{marginRight: 10}} /> Upload na Home
         </MenuItem>
       </Menu>

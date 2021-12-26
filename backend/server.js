@@ -145,22 +145,30 @@ function updateArea(req, res){
                 })
             }else{ 
                 const extFile = path.extname(listReadFiles[num]);
+                const ext = extFile.replace(".",""); //get extension
+                const base64 = fs.readFileSync(diretorio + '/' + listReadFiles[num], {encoding: 'base64'});
                 
-                if(extFile.replace(".","") === "jpg" || "jpeg" || "png" || "svg"){
-                    const base64 = fs.readFileSync(diretorio + '/' + listReadFiles[num], {encoding: 'base64'});
+                if(ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "svg"){
                     arquivos.push({
                         name: path.basename(listReadFiles[num], extFile),
                         type: 0, //don't pasta
                         extension: extFile.replace(".",""),
                         blob: `data:image/${extFile.replace(".","")};base64,${base64}`
                     });
-                }else{
+                }else if(ext === "mp3" || ext === "m4a" || ext === "wav" || ext === "aac"){
                     arquivos.push({
                         name: path.basename(listReadFiles[num], extFile),
                         type: 0, //don't pasta
-                        extension: "~/path/"+extFile.replace(".","")
+                        extension: extFile.replace(".",""),
+                        blob: `data:audio/${extFile.replace(".","")};base64,${base64}`
                     });
-                }
+                }else{
+                    arquivos.push({
+                    name: path.basename(listReadFiles[num], extFile),
+                    type: 0, //don't pasta
+                    extension: "~/path/"+extFile.replace(".","")
+                });
+            }
                 //arquivos.push(diretorio + '/' + listReadFiles[num])
             }
         }

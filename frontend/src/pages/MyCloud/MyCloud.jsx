@@ -15,7 +15,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 //STYLES
-import {NavCloud, Content, LiFile} from './style/mycloud'
+import {NavCloud, Content, LiFile, Preview} from './style/mycloud'
 //NavUser
 import User from './User/User'
 //Button Options Add
@@ -62,15 +62,25 @@ export default function MyCloud(){
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   
     const handlePreviewOpen = () => {
-      setOpen(true);
+        setOpen(true);
     };
   
     const handlePreviewClose = () => {
       setOpen(false);
     };
 
-    const [imgPreview, setImgPreview] = useState("")
-    const [videoPreview, setVideoPreview] = useState("")
+    const [ext, setExt] = useState("")
+    const [preview, setPreview] = useState("")
+    
+    function filePreview(ext){
+        if(ext === "jpg" || ext === "png"){
+            return <img src={preview} alt="Erro na imagem" className="preview-image" style={{width: "100%", borderRadius: "8px",background: "f1f1f1"}}/>
+        }else if(ext === "mp3" || ext === "m4a" || ext === "wav" || ext === "aac"){
+            return <div className="content-audio"><audio controls src={preview} /></div>
+        }else{
+            //void
+        }
+    }
 
     return(
         <>
@@ -89,8 +99,8 @@ export default function MyCloud(){
                         {
                             files.map((file, id) => (
                                 <>
-                                    <Grid item xs={4} sm={2}>
-                                        <LiFile key={id}>
+                                    <Grid item xs={4} sm={2} key={id}>
+                                        <LiFile>
                                             {
                                                 file.type ? ( //file
                                                     <>                                                           
@@ -105,10 +115,10 @@ export default function MyCloud(){
                                                 ) : ( //image
                                                     <>
                                                         <div className="isolation">
-                                                            <FileOptions className="options-menu" file={`${file.name}.${file.extension}`} />
-                                                            <button title={file.name} variant="outlined" color="primary" onClick={() => {setImgPreview(file.blob); handlePreviewOpen()}}> 
+                                                            <FileOptions className="options-menu" typeFile="" file={`${file.name}.${file.extension}`} />
+                                                            <button title={file.name} variant="outlined" color="primary" onClick={() => {setPreview(file.blob); setExt(file.extension); handlePreviewOpen()}}> 
                                                                 {
-                                                                    file.extension === "jpg" || "jpeg" || "png" || "svg"
+                                                                    file.extension === "jpg" || file.extension === "jpeg" || file.extension === "png" || file.extension === "svg"
                                                                     ?   <img className='img-ext img-miniature' src={`${file.blob}`} alt=""/>
                                                                     :   <img className="img-ext" src={`./img/extensions/${file.extension}.png`} alt=""/>
                                                                 }                                                                              
@@ -132,36 +142,44 @@ export default function MyCloud(){
                             onClose={handlePreviewClose}
                             aria-labelledby="responsive-dialog-title"
                         >
-                            <DialogTitle id="responsive-dialog-title">{"Visualização da imagem"} 
-                            <Button 
-                                onClick={handlePreviewClose} 
-                                color="primary"
+                            <DialogTitle 
+                                id="responsive-dialog-title"
                                 style={{
-                                    position: "absolute",
-                                    right: 15
+                                    position: "relative",
+                                    zIndex: 1,
                                 }}
                             >
-                                Fechar <CloseIcon/>
-                            </Button></DialogTitle>
+                                {"Visualização do arquivo"} 
+                                <Button 
+                                    onClick={handlePreviewClose} 
+                                    color="primary"
+                                    style={{
+                                        position: "absolute",
+                                        right: 15
+                                    }}
+                                >
+                                    Fechar <CloseIcon/>
+                                </Button>
+                            </DialogTitle>
                                 <DialogContent>
-                                    <DialogContentText>
-                                        <img 
-                                            src={imgPreview} 
-                                            alt="Erro na imagem" 
-                                            className="preview-image"
-                                            style={{
-                                                width: "100%",
-                                                borderRadius: "8px",
-                                                background: "f1f1f1"
-                                            }}
-                                        />
+                                    <DialogContentText
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            margin: 0,
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                        }}
+                                    >
+                                        { filePreview(ext) }
                                     </DialogContentText>
                                 </DialogContent>
                             <DialogActions>
                             
                             {/*<Button onClick={handlePreviewClose} color="primary" autoFocus>
                                 Baixar
-                                        </Button>*/}
+                            </Button>*/}
                             </DialogActions>
                         </Dialog>
                     </div>

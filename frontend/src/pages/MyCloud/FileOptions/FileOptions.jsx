@@ -5,8 +5,6 @@ import FileDownload from 'js-file-download'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {Container} from '@material-ui/core'
-import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -22,8 +20,6 @@ import api from '../../../services/api'
 //ICONS
 import DeleteIcon from '@material-ui/icons/Delete';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import CloseIcon from '@material-ui/icons/Close';
-import CreateIcon from '@material-ui/icons/Create';
 
 export default function OptionsMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -71,8 +67,6 @@ export default function OptionsMenu(props) {
   const handleCloseDelete = () => {
     setOpenDelete(false);
   };
-
-  const [deleteConfirm, setDeleteConfirm] = useState("")
 
   return (
     <>

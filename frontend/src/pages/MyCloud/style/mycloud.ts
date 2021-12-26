@@ -69,3 +69,13 @@ export const LiFile = styled.li`
         margin: 5px 0 7px 0;
     }
 `
+
+export const Preview = styled.div`
+    position: relative;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+`
