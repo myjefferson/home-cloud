@@ -13,6 +13,7 @@ export default function Routes(){
                 <Route exact path="/" component={Installer} />
                 <Route path="/MyCloud" component={MyCloud} />
                 <Route path="/Welcome" component={Welcome} />
+                <Route path="*" component={Welcome} />
             </Switch>
         </BrowserRouter>
     )

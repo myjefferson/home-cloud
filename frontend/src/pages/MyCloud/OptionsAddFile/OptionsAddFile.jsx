@@ -36,7 +36,7 @@ export default function OptionAdd(files, setFiles) {
         dataForm.append('files', file)
       }
 
-      await api.post('upload?dir='+dirURL, dataForm, {
+      await api.post('upload/' + dirURL, dataForm, {
           headers: {
               "Content-Type": `mutipart/form-data; boundary=${dataForm._boundary}`
           }
@@ -53,7 +53,7 @@ export default function OptionAdd(files, setFiles) {
   const makeFolder = async() =>{
     if(nameFolder !== ""){
       //useEffect(() => {
-        await api.post('createFolder?dir='+dirURL+"&name="+nameFolder).then(res => {
+        await api.post('createFolder?dirpage='+dirURL+"&name="+nameFolder).then(res => {
           console.log("pasta criada")
         }).catch(error => {
           console.log("Falha ao criar a pasta")

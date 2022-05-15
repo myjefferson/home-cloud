@@ -10,12 +10,11 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 //STYLES
-import {NavCloud, Content, LiFile, Preview} from './style/mycloud'
+import {NavCloud, Content, LiFile} from './style/mycloud'
 //NavUser
 import User from './User/User'
 //Button Options Add
@@ -103,7 +102,7 @@ export default function MyCloud(){
                 </NavCloud>
                 <Content>
                     
-                    <OptionsAddFile files={files}/>
+                    <OptionsAddFile files={files} dirURL={dirURL} />
 
                     <Grid container spacing={2}>
                         {
