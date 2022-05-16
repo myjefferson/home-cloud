@@ -1,7 +1,7 @@
 const fs = require("fs")
 
 const CreateFolderController = (req, res) =>{
-    const { name, dirpage } = req.query
+    const { name, dirpage} = req.query
 
     console.log(name)
     

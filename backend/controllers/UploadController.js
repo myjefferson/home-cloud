@@ -4,7 +4,6 @@ const path = require('path')
 const UploadController = multer.diskStorage({
 
     destination: function(req, file, cd){
-
         const files = req.files
 
         if(!files){
@@ -14,8 +13,8 @@ const UploadController = multer.diskStorage({
             return error
         }
 
-        cd( null, path.resolve( __dirname, '../../', req.params.dirpage ))
-        console.log(`filename: ` + file.fieldname)
+        cd( null, path.resolve( '../', req.query.dirpage ))
+        //console.log(`filename: ${path.basename(file.originalname)} uploaded`)
     },
 
     filename: function(req, file, cd){

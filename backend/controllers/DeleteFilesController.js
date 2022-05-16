@@ -4,13 +4,13 @@ const fs = require("fs");
 
 const DeleteFilesController = (req, res) => {
     
-    const {dir} = req.query
-    const verifyExt = path.extname(`../${ dir }`)
+    const { dirpage } = req.query
+    const verifyExt = path.extname(`../${ dirpage }`)
     
     if(verifyExt != ""){
-        fs.unlinkSync(`../${dir}`);
+        fs.unlinkSync(`../${dirpage}`);
     }else{
-        rimraf(`../${dir}`, function () {
+        rimraf(`../${dirpage}`, function () {
             console.log('pasta apagada!')
         })
     }

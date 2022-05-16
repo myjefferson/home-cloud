@@ -20,9 +20,6 @@ const fs = require('fs')
 
 const rotas = require("./routes");
 
-//URL dir actual from  query
-var currentDir;
-
 
 app.use(cors())
 app.use(express.json())
@@ -60,6 +57,7 @@ app.post('/installSystem', (req, res) =>{
 app.post('/login', (req, res) => {
     
 })
+
 /*(async () =>{
     const db = require("./db/conection");
     console.log("começou")
@@ -85,35 +83,7 @@ function Pasta(){
     }
 }Pasta();
 
-//CREATE FOLDER FROM ACTUAL AREA
-
-
-//DOWNLOAD FILE
-// app.get('/download', 
-//     cors({
-//         exposedHeaders: ['Content-Disposition']
-//     }),
-//     async (req, res) => {
-//         const {dir, fileName} = req.query
-//         try{
-//             const fileURL = `../${dir}`
-//             const mimetype = mime.lookup(fileURL)
-//             res.set({
-//                 'Content-Disposition': `attachment; filename="${fileName}"`,
-//                 'Content-Type': mimetype,
-//             })
-
-//             const stream = fs.createReadStream(fileURL)
-//             stream.pipe(res)
-//         }catch (e){
-//             console.error(e)
-//             res.status(500).end()
-//         }
-//     }
-// )
-
 app.use(express.static('public'))
-
 const server = app.listen(8080, () => {
     console.log(`Server port: ${server.address().port}`)
 })

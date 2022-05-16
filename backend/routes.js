@@ -16,13 +16,13 @@ const { CreateFolderController } = require('./controllers/CreateFolderController
 //RouterShowFiles
 router.get('/files', (req, res) => { ShowFilesController(req, res) })
 
-const upload =  multer({ storage: UploadController})
 
 //RouterCreateFolder
 router.post('/createFolder', (req, res) => { CreateFolderController(req, res) })
 
 //RouterUpload
-router.post( '/upload/:dirpage', upload.array('files'), async (req, res, next) => { /*return json(files)*/  });
+const upload =  multer({ storage: UploadController})
+router.post( '/upload', upload.array('files'), async (req, res, next) => { /*return json(files)*/  });
 
 //RouterDownloadFile
 router.get('/download', (req,res) =>

@@ -40,7 +40,7 @@ export default function OptionsMenu(props) {
 
   //DOWNLOAD FUNCTION
   async function Download(file){
-    await api.get(`/download?dir=${dirURL}/${file}&filename=${file}`, {
+    await api.get(`/download?dirpage=${dirURL}/${file}&filename=${file}`, {
             responseType: 'blob',             
         }
     ).then((res) => {
@@ -50,7 +50,7 @@ export default function OptionsMenu(props) {
 
   //DELETE FILE
   async function Delete(file){
-    await api.delete(`/delete?dir=${dirURL}/${file}`).then((res) => {
+    await api.delete(`/delete?dirpage=${dirURL}/${file}`).then((res) => {
       console.log(res)
     })
   }

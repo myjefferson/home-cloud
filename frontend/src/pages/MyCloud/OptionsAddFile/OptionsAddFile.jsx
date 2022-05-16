@@ -36,7 +36,7 @@ export default function OptionAdd(files, setFiles) {
         dataForm.append('files', file)
       }
 
-      await api.post('upload/' + dirURL, dataForm, {
+      await api.post('upload?dirpage=' + dirURL, dataForm, {
           headers: {
               "Content-Type": `mutipart/form-data; boundary=${dataForm._boundary}`
           }

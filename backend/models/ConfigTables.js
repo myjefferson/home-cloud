@@ -1,9 +1,6 @@
 const Sequelize = require('sequelize')
 const sequelize = require('./conection')
 
-//Cria a tabela só uma vez*/
-//Config.sync({force: true}) //Sobrescreve a tabela
-
 const Config = sequelize.define('configs',{
     id: {
         type: Sequelize.INTEGER,
@@ -47,5 +44,8 @@ const User = sequelize.define('users', {
         allowNull: false
     }
 })
+
+//Force: Cria o banco mesmo se existir*/
+//Config.sync({force: true}) //Sobrescreve a tabela
 
 module.exports = {User, Config}
