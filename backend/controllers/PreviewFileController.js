@@ -12,24 +12,28 @@ const PreviewFileController = (req, res) => {
             const stream = fs.createReadStream(calldir);
             const extFile = path.extname(calldir);
             const extension = extFile.replace(".","").toLowerCase(); //get file extension
-            
-            if( (miniature === 'true') && (extension === "jpg" || extension === "jpeg" || extension === "png" || extension === "svg") ){
+
+            const arrayImage = ['jpg', 'jpeg', 'png', 'svg']
+            const arrayAudio = ['mp3', 'm4a', 'wav', 'aac']
+            const arrayVideo = ['mp4']
+
+            if( (miniature === 'true') && (arrayImage.indexOf(extension) === 0) ){
 
                 //Create miniature for images file 
                 const resize = Sharp().resize(200).toFormat('jpg')
                 res.set('Content-Type', 'image/jpg')
                 stream.pipe(resize).pipe(res)
 
-            }else if(extension === "jpg" || extension === "jpeg" || extension === "png" || extension === "svg"){
+            }else if( arrayImage.indexOf(extension) === 0 ){
                 const resize = Sharp().resize(900).toFormat('jpg')
                 res.set('Content-Type', 'image/jpg')
                 stream.pipe(resize).pipe(res)
 
-            }else if(extension === "mp3" || extension === "m4a" || extension === "wav" || extension === "aac"){
+            }else if( arrayAudio.indexOf(extension) === 0 ){
                 res.set('Content-Type', 'video/mp3')
                 stream.pipe(res)
 
-            }else if(extension === "mp4"){                
+            }else if( arrayVideo.indexOf(extension) === 0 ){                
                 res.set('Content-Type', 'video/mp4')
                 stream.pipe(res)
             }

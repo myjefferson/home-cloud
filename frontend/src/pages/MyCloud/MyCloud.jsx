@@ -75,8 +75,12 @@ export default function MyCloud(){
         return `http://${ window.location.hostname }:8080/preview?miniature=${ miniature }&show=${ dirURL }/${ name }.${ extension }`
     }
 
+    const arrayImage = ['jpg', 'jpeg', 'png', 'svg']
+    const arrayAudio = ['mp3', 'm4a', 'wav', 'aac']
+    const arrayVideo = ['mp4']
+
     function filePreview(ext){
-        if(ext === "jpg" || ext === "png"){
+        if(arrayImage.indexOf(ext) === 0){
             return <img 
                         src={preview} 
                         alt="Erro na imagem" 
@@ -86,11 +90,11 @@ export default function MyCloud(){
                             borderRadius: "8px",
                             background: "f1f1f1"}}
                     />
-        }else if(ext === "mp3" || ext === "m4a" || ext === "wav" || ext === "aac"){
+        }else if(arrayAudio.indexOf(ext) === 0){
             return <div className="content-audio">
                         <audio controls src={preview} />
                     </div>
-        }else if(ext === "mp4"){
+        }else if(arrayVideo.indexOf(ext) === 0){
             return <div className="content-video">
                         <video controls>
                             <source src={preview} />
@@ -135,7 +139,7 @@ export default function MyCloud(){
                                                             <FileOptions className="options-menu" typeFile="" file={`${file.name}.${file.extension}`} />
                                                             <button title={file.name} variant="outlined" color="primary" onClick={() => {setPreview( passToURLPreview(file.name, file.extension, false) ); setExt(file.extension); handlePreviewOpen()}}> 
                                                                 {
-                                                                    file.extension === "jpg" || file.extension === "jpeg" || file.extension === "png" || file.extension === "svg"
+                                                                    arrayImage.indexOf(file.extension.toLowerCase()) === 0
                                                                     ?   <img className='img-ext img-miniature' src={ passToURLPreview(file.name, file.extension, true) } alt="Imagem não encontrada"/>
                                                                     :   <img className="img-ext" src={`./img/extensions/${file.extension}.png`} alt=""/>
                                                                 }                                                                              
