@@ -8,31 +8,30 @@ router.use(express.json())
 
 //Controllers
 const { UploadController } = require("./controllers/UploadController")
-const { ShowFilesController } = require("./controllers/ShowFilesController")
+const { ListFilesController } = require("./controllers/ListFilesController")
+const { PreviewFileController } = require("./controllers/PreviewFileController")
 const { DeleteFilesController } = require('./controllers/DeleteFilesController')
 const { DownloadFilesController } = require('./controllers/DownloadFilesController')
 const { CreateFolderController } = require('./controllers/CreateFolderController')
 
-//RouterShowFiles
-router.get('/files', (req, res) => { ShowFilesController(req, res) })
+//RouterListFiles
+router.get('/listfiles', (req, res) => ListFilesController(req, res))
 
+//RouterPreviewFileAndMiniature
+router.get('/preview', (req, res) => PreviewFileController(req, res))
 
 //RouterCreateFolder
-router.post('/createFolder', (req, res) => { CreateFolderController(req, res) })
+router.post('/createFolder', (req, res) => CreateFolderController(req, res))
 
-//RouterUpload
+//RouterUploadFile
 const upload =  multer({ storage: UploadController})
 router.post( '/upload', upload.array('files'), async (req, res, next) => { /*return json(files)*/  });
 
 //RouterDownloadFile
-router.get('/download', (req,res) =>
-    DownloadFilesController(req, res) 
-)
+router.get('/download', (req,res) => DownloadFilesController(req, res))
 
 //RouterDeleteFile
-router.delete(`/delete`, (req, res) => { 
-     DeleteFilesController(req, res) 
-})
+router.delete(`/delete`, (req, res) => DeleteFilesController(req, res))
 
-//Export routes
+//Export routes to server
 module.exports = router;

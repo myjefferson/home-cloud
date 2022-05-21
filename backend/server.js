@@ -17,12 +17,15 @@ const { User, Config } = require('./models/ConfigTables')
 const sequelize = require('./models/conection')
 const fsalt = require('fs').promises
 const fs = require('fs')
+const Sharp = require('sharp')
 
 const rotas = require("./routes");
 
 
 app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 //Carrega as rotas
 app.use(rotas)
 
@@ -48,7 +51,7 @@ app.post('/installSystem', (req, res) =>{
     Config.create({
         //name: "Jefferson",
         //email: "jcsjeffrey@gmail.com",
-        //password: '12345678',
+        //password: 'password',
         installed: 1,
         diskSpace: sizeStorage
     })
@@ -74,6 +77,14 @@ app.get('/diskspace', (req,res) => {
     })
 })
 
+app.get('/video/:video', (req,res) => {
+    const { video } = req.params
+    const stream = fs.createReadStream(__dirname + '../../cloud/' + video);
+        
+    res.set('Content-Type', 'video/mp4')
+
+    stream.pipe(res)
+})
 
 //DETECT CREATED PRINCIPAL PASTA
 const pasta = "../cloud"

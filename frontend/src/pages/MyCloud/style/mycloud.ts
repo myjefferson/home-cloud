@@ -59,11 +59,6 @@ export const LiFile = styled.li`
         background: #e0e0e0;
     }
 
-    .preview-image{
-        width: 100%;
-        height: 100%;
-    }
-
     p{
         white-space: nowrap;
         overflow: hidden;
@@ -80,7 +75,17 @@ export const Preview = styled.div`
     z-index: 0;
     left: 0;
     top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
 
+    .preview-image{
+        width: 100%;
+    }  
+
+    .content-video video{
+        width: 100%;
+    }
 `

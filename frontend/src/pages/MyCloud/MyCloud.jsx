@@ -14,7 +14,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 //STYLES
-import {NavCloud, Content, LiFile} from './style/mycloud'
+import {NavCloud, Content, LiFile, Preview} from './style/mycloud'
 //NavUser
 import User from './User/User'
 //Button Options Add
@@ -30,7 +30,7 @@ export default function MyCloud(){
     const dirURL = params.get('dir');
 
     const updateFiles = () =>{
-        api.get('files?dir='+dirURL).then(res => {
+        api.get('/listfiles?dir='+dirURL).then(res => {
             setFiles(res.data)
         })
     }
@@ -47,7 +47,7 @@ export default function MyCloud(){
         updateFiles()
         setInterval(() => {
             updateFiles()
-        }, 2000)
+        }, 2500)
     },[])
 
     //open next directory
@@ -70,7 +70,11 @@ export default function MyCloud(){
 
     const [ext, setExt] = useState("")
     const [preview, setPreview] = useState("")
-    
+
+    const passToURLPreview = (name, extension, miniature = true) => {
+        return `http://${ window.location.hostname }:8080/preview?miniature=${ miniature }&show=${ dirURL }/${ name }.${ extension }`
+    }
+
     function filePreview(ext){
         if(ext === "jpg" || ext === "png"){
             return <img 
@@ -86,8 +90,12 @@ export default function MyCloud(){
             return <div className="content-audio">
                         <audio controls src={preview} />
                     </div>
-        }else{
-            //void
+        }else if(ext === "mp4"){
+            return <div className="content-video">
+                        <video controls>
+                            <source src={preview} />
+                        </video>
+                    </div>
         }
     }
 
@@ -125,10 +133,10 @@ export default function MyCloud(){
                                                     <>
                                                         <div className="isolation">
                                                             <FileOptions className="options-menu" typeFile="" file={`${file.name}.${file.extension}`} />
-                                                            <button title={file.name} variant="outlined" color="primary" onClick={() => {setPreview(`${file.base64}`); setExt(file.extension); handlePreviewOpen()}}> 
+                                                            <button title={file.name} variant="outlined" color="primary" onClick={() => {setPreview( passToURLPreview(file.name, file.extension, false) ); setExt(file.extension); handlePreviewOpen()}}> 
                                                                 {
                                                                     file.extension === "jpg" || file.extension === "jpeg" || file.extension === "png" || file.extension === "svg"
-                                                                    ?   <img className='img-ext img-miniature' src={ file.base64 } alt=""/>
+                                                                    ?   <img className='img-ext img-miniature' src={ passToURLPreview(file.name, file.extension, true) } alt="Imagem não encontrada"/>
                                                                     :   <img className="img-ext" src={`./img/extensions/${file.extension}.png`} alt=""/>
                                                                 }                                                                              
                                                             </button>                                                           
@@ -181,7 +189,9 @@ export default function MyCloud(){
                                         alignItems: "center",
                                     }}
                                 >  
-                                    { filePreview(ext) }
+                                    <Preview>
+                                        { filePreview(ext) }
+                                    </Preview>
                                 </DialogContent>
                             <DialogActions>
                             
