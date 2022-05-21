@@ -4,9 +4,9 @@ const Sharp = require('sharp');
 
 const PreviewFileController = (req, res) => {
     const { miniature, show } = req.query;
-    const calldir = __dirname + '../../../' + show;
+    const calldir = path.join(__dirname + `../../../${show}`);
 
-    fs.access(calldir, (exists) => {
+    fs.access( calldir , (exists) => {
         if(!exists === true){
 
             const stream = fs.createReadStream(calldir);
