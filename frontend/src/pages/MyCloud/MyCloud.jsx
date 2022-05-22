@@ -80,7 +80,8 @@ export default function MyCloud(){
     const arrayVideo = ['mp4']
 
     function filePreview(ext){
-        if(arrayImage.indexOf(ext) === 0){
+
+        if(arrayImage.indexOf(ext) === 0 ){
             return <img 
                         src={preview} 
                         alt="Erro na imagem" 
@@ -90,16 +91,24 @@ export default function MyCloud(){
                             borderRadius: "8px",
                             background: "f1f1f1"}}
                     />
-        }else if(arrayAudio.indexOf(ext) === 0){
+        }
+        
+        if(arrayAudio.indexOf(ext) === 0){
             return <div className="content-audio">
                         <audio controls src={preview} />
                     </div>
-        }else if(arrayVideo.indexOf(ext) === 0){
+        }
+        
+        if(arrayVideo.indexOf(ext) === 0){
             return <div className="content-video">
                         <video controls>
                             <source src={preview} />
                         </video>
                     </div>
+        }
+
+        if(ext === 'gif' || arrayImage.indexOf(ext) < 0){
+            return <div><p> Formato ainda não suportado para vizualisação. </p></div>
         }
     }
 
@@ -194,7 +203,7 @@ export default function MyCloud(){
                                     }}
                                 >  
                                     <Preview>
-                                        { filePreview(ext) }
+                                        { filePreview(ext.toLowerCase()) }
                                     </Preview>
                                 </DialogContent>
                             <DialogActions>
