@@ -18,14 +18,13 @@ const PreviewFileController = (req, res) => {
             const arrayVideo = ['mp4']
 
             if( (miniature === 'true') && (arrayImage.indexOf(extension) === 0) ){
-
                 //Create miniature for images file 
-                const resize = Sharp().resize(200).toFormat('jpg')
+                const resize = Sharp({ failOnError: false }).resize(200).toFormat('jpg')
                 res.set('Content-Type', 'image/jpg')
                 stream.pipe(resize).pipe(res)
 
             }else if( arrayImage.indexOf(extension) === 0 ){
-                const resize = Sharp().resize(900).toFormat('jpg')
+                const resize = Sharp({ failOnError: false }).resize(900).toFormat('jpg')
                 res.set('Content-Type', 'image/jpg')
                 stream.pipe(resize).pipe(res)
 
@@ -33,7 +32,7 @@ const PreviewFileController = (req, res) => {
                 res.set('Content-Type', 'video/mp3')
                 stream.pipe(res)
 
-            }else if( arrayVideo.indexOf(extension) === 0 ){                
+            }else if( arrayVideo.indexOf(extension) === 0 ){ 
                 res.set('Content-Type', 'video/mp4')
                 stream.pipe(res)
             }
