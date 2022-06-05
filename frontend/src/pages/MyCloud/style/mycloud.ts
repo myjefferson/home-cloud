@@ -83,8 +83,9 @@ export const Preview = styled.div`
     height: 100%;
 
     .content-image,
-    .content-video video,{
+    .content-video video{
         width: 100%;
+        max-height: 72vh;
     }
 
     .content-document{
