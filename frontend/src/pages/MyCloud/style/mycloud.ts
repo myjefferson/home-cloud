@@ -75,17 +75,21 @@ export const Preview = styled.div`
     z-index: 0;
     left: 0;
     top: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
 
-    .preview-image{
+    .content-image,
+    .content-video video,{
         width: 100%;
-    }  
+    }
 
-    .content-video video{
-        width: 100%;
+    .content-document{
+        max-width: 100%;
+        min-width: 390px;
+        height: 70vh;
     }
 `

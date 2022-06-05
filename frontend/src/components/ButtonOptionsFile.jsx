@@ -15,13 +15,13 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
 //Server-Side API
-import api from '../../../services/api'
+import api from '../services/api'
 
 //ICONS
 import DeleteIcon from '@material-ui/icons/Delete';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
-export default function OptionsMenu(props) {
+export default function ButtonOptionsFile(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 

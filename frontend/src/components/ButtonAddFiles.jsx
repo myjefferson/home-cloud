@@ -1,6 +1,6 @@
 import React, { useRef, useState} from 'react';
 import FormData from 'form-data'
-import api from '../../../services/api'
+import api from '../services/api'
 
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -18,7 +18,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CreateNewFolder from '@material-ui/icons/CreateNewFolder'
 
-export default function OptionAdd(files, setFiles) {   
+export default function ButtonAddFiles(files, setFiles) {   
   //Current URL
   const currentURL = window.location.search
   const params = new URLSearchParams(currentURL); 

@@ -1,6 +1,6 @@
+const mimeTypes = require('../configs/mimeTypes')
 const path = require("path")
 const fsalt = require('fs').promises
-const fs = require('fs')
 
 const ListFilesController = (req, res) => {
     const { dir } = req.query
@@ -19,16 +19,16 @@ const ListFilesController = (req, res) => {
                 })
             }else{ 
                 const extFile = path.extname(listReadFiles[num]);
-                const ext = extFile.replace(".",""); //get extension
+                const extension = extFile.replace(".","");
                 
-                if(ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "svg"){
+                if( mimeTypes.image.indexOf(extension) > -1 ){
                     arquivos.push({
                         name: path.basename(listReadFiles[num], extFile),
                         type: 0, //don't pasta
                         extension: extFile.replace(".",""),
                     });
                    
-                }else if(ext === "mp3" || ext === "m4a" || ext === "wav" || ext === "aac"){
+                }else if( mimeTypes.audio.indexOf(extension) > -1 ){
                     arquivos.push({
                         name: path.basename(listReadFiles[num], extFile),
                         type: 0, //don't pasta
