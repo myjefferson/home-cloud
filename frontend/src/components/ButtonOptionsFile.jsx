@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import IconButton from '@material-ui/core/IconButton';
-import FileDownload from 'js-file-download'
+import startDownload from 'js-file-download'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -20,53 +20,44 @@ import api from '../services/api'
 //ICONS
 import DeleteIcon from '@material-ui/icons/Delete';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+//import InfoIcon from '@material-ui/icons/Info';
+//import EditIcon from '@material-ui/icons/Edit';
 
 export default function ButtonOptionsFile(props) {
+  //useStates
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openDialogDelete, setOpenDialogDelete] = useState(false);
+
   const open = Boolean(anchorEl);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  //Handle onClick Buttons
+  const handleClick = (event) => { setAnchorEl(event.currentTarget) };
+  const handleClose = () => { setAnchorEl(null) };
 
   //URL DIR
   const currentURL = window.location.search
   const params = new URLSearchParams(currentURL); 
   const dirURL = params.get('dir');
 
-  //DOWNLOAD FUNCTION
-  async function Download(file){
+  async function downloadFile(file){
     await api.get(`/download?dirpage=${dirURL}/${file}&filename=${file}`, {
             responseType: 'blob',             
-        }
-    ).then((res) => {
-        FileDownload(res.data, file);
+    }).then((res) => {
+        startDownload(res.data, file);
     })
   }
 
-  //DELETE FILE
-  async function Delete(file){
-    await api.delete(`/delete?dirpage=${dirURL}/${file}`).then((res) => {
+  async function deleteFile(file){
+    setOpenDialogDelete(false)
+    await api.delete(`/delete?dirpage=${dirURL}/${file}`)
+    .then((res) => {
       console.log(res)
     })
   }
 
   //preview functions
-  const [openDelete, setOpenDelete] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-
-  const handleOpenDelete = () => {
-    setOpenDelete(true);
-  };
-
-  const handleCloseDelete = () => {
-    setOpenDelete(false);
-  };
 
   return (
     <>
@@ -98,36 +89,37 @@ export default function ButtonOptionsFile(props) {
       >
         {/*<MenuItem  onClick={handleClose}>
           <CreateIcon style={{marginRight: 10}}/>Renomear
-      </MenuItem>*/}
-      {
-        props.typeFile === "folder" ? (
-          <MenuItem  onClick={() => {handleOpenDelete(); handleClose()}}>
-            <DeleteIcon style={{marginRight: 10}}/> Remover
-          </MenuItem> 
-        ) : (
-          <>
-            <MenuItem onClick={() => {Download(props.file); handleClose()}}>
-              <CloudDownloadIcon style={{marginRight: 10}}/> Baixar
-            </MenuItem>
-            <MenuItem  onClick={() => {handleOpenDelete(); handleClose()}}>
+        </MenuItem>*/}
+        {
+          props.typeFile === "folder" ? (
+            <MenuItem  onClick={() => {setOpenDialogDelete(true); handleClose()}}>
               <DeleteIcon style={{marginRight: 10}}/> Remover
-            </MenuItem>
-          </>
-        )
-        /*
-          <MenuItem  onClick={handleClose}>
-            Detalhes do Arquivo
-          </MenuItem>
-        */
-      }
+            </MenuItem> 
+          ) : (
+            <>
+              <MenuItem onClick={() => {downloadFile(props.file); handleClose()}}>
+                <CloudDownloadIcon style={{marginRight: 10}}/> Baixar
+              </MenuItem>
+              <MenuItem  onClick={() => {setOpenDialogDelete(true); handleClose()}}>
+                <DeleteIcon style={{marginRight: 10}}/> Remover
+              </MenuItem>
+            </>
+          )
+        }
+
+        {/* <MenuItem  onClick={handleClose}>
+          <InfoIcon style={{marginRight: 10}}/> Detalhes
+        </MenuItem>
+        <MenuItem  onClick={handleClose}>
+          <EditIcon style={{marginRight: 10}}/> Renomear
+        </MenuItem> */}
 
       </Menu>
 
-      {/*Modal Confirmation*/}
       <Dialog
           fullScreen={fullScreen}
-          open={openDelete}
-          onClose={handleCloseDelete}
+          open={openDialogDelete}
+          onClose={() => setOpenDialogDelete(false)}
           aria-labelledby="responsive-dialog-title"
       >
           <DialogTitle id="responsive-dialog-title">{"Tem certeza que deseja excluir?"}</DialogTitle>
@@ -137,11 +129,11 @@ export default function ButtonOptionsFile(props) {
                   </DialogContentText>
               </DialogContent>
           <DialogActions>
-          <Button onClick={() => {Delete(props.file); handleCloseDelete()}} variant="text">
+          <Button onClick={() => deleteFile(props.file)} variant="text">
               Confirmar
           </Button>
           <Button 
-              onClick={handleCloseDelete} 
+              onClick={() => setOpenDialogDelete(false)} 
               color="primary"
               autofocus
               variant="contained"
@@ -151,6 +143,7 @@ export default function ButtonOptionsFile(props) {
           >
               Cancelar
           </Button>
+          
           </DialogActions>
       </Dialog>
     </>
