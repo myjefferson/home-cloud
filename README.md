@@ -78,7 +78,7 @@
 ```
 
 <h2>Iniciando a aplicação web (Frontend)</h2>
-<p>Utilize um novo terminal no VS Code e siga os seguintes comandos:</p>
+<p>Utilize um terminal e siga os seguintes comandos:</p>
 
 ```
     # Acesse a pasta do projeto
