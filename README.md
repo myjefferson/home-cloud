@@ -9,7 +9,7 @@
     <li>ReactJS</li>
     <li>React Native</li>
     <li>NodeJS</li>
-    <li>MySQL</li>
+    <li>SQLite</li>
 </ul>
 <h1>Executando o Projeto</h1>
 
