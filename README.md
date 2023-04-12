@@ -29,7 +29,7 @@
     <li>NodeJS</li>
     <li>Visual Studio Code</li>
     <li>Yarn (ou NPM)</li>
-    <li>MySQL (ou um pacote de servidores como XAMPP por exemplo)</li>
+    <li>SQLite (ou um pacote de servidores como XAMPP por exemplo)</li>
     <li>Git</li>
 </ul>
 
