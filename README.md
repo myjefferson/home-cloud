@@ -28,8 +28,7 @@
 <ul>
     <li>NodeJS</li>
     <li>Visual Studio Code</li>
-    <li>Yarn (ou NPM)</li>
-    <li>SQLite (ou um pacote de servidores como XAMPP por exemplo)</li>
+    <li>Yarn (ou NPM)</li>a
     <li>Git</li>
 </ul>
 
