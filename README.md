@@ -9,7 +9,7 @@
     <li>ReactJS</li>
     <li>React Native</li>
     <li>NodeJS</li>
-    <li>MySQL</li>
+    <li>SQLite</li>
 </ul>
 <h1>Executando o Projeto</h1>
 
@@ -28,8 +28,7 @@
 <ul>
     <li>NodeJS</li>
     <li>Visual Studio Code</li>
-    <li>Yarn (ou NPM)</li>
-    <li>MySQL (ou um pacote de servidores como XAMPP por exemplo)</li>
+    <li>Yarn (ou NPM)</li>a
     <li>Git</li>
 </ul>
 
@@ -78,7 +77,7 @@
 ```
 
 <h2>Iniciando a aplicação web (Frontend)</h2>
-<p>Utilize um novo terminal no VS Code e siga os seguintes comandos:</p>
+<p>Utilize um terminal e siga os seguintes comandos:</p>
 
 ```
     # Acesse a pasta do projeto
