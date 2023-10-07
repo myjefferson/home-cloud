@@ -2,11 +2,11 @@ const mimeTypes = require('../configs/mimeTypes')
 const path = require("path")
 const fsalt = require('fs').promises
 
-const ListFilesController = (req, res) => {
+exports.ListFilesController = (req, res) => {
     const { dir } = req.query
 
     listFiles = async (diretorio, arquivos) =>{
-        if(!arquivos){ arquivos = []; }
+        arquivos = [];
 
         let listReadFiles = await fsalt.readdir(diretorio);
         for(let num in listReadFiles){
@@ -47,10 +47,8 @@ const ListFilesController = (req, res) => {
         return arquivos
     }
 
-    async function callFiles(){
+    callFiles = async () => {
         let arquivos = await listFiles(`../${dir}`);
         res.json(arquivos)
-    } callFiles()
+    }; callFiles()
 }
-
-module.exports = { ListFilesController }

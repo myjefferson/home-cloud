@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: `http://${window.location.hostname}:8080`,
+    baseURL: `http://${ process.env.REACT_APP_HOSTNAME }:8080`,
     //responseType: 'blob'
 })
 

@@ -1,11 +1,12 @@
-import Routes from './routes'
+import RoutesApp from './routes'
 import {GlobaStyle} from './assets/style/global-styles'
+import './index.css'
 
 export default function App() {
   return (
     <>
         <GlobaStyle/>
-        <Routes/>
+        <RoutesApp/>
     </>
   );
 }

@@ -20,7 +20,7 @@ export const Content = styled.div`
         overflow-x: hidden;
     }
     
-    .principal{
+    .start-dialog{
         position: relative;
         animation-name: slider;
         animation-duration: 0.7s;
@@ -41,7 +41,7 @@ export const Content = styled.div`
         color: #474747;
     }
 
-    .box-dialog input{
+    .box-dialog .input-disk-space{
         padding: 10px;
         border: 2px solid #F6004A;
         background: #F4F4F4;

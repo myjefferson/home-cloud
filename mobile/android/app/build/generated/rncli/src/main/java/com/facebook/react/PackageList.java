@@ -13,8 +13,12 @@ import java.util.ArrayList;
 
 // react-native-fs
 import com.rnfs.RNFSPackage;
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-network-info
 import com.pusherman.networkinfo.RNNetworkInfoPackage;
+// react-native-reanimated
+import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-webview
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 // rn-fetch-blob
@@ -65,7 +69,9 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNFSPackage(),
+      new RNGestureHandlerPackage(),
       new RNNetworkInfoPackage(),
+      new ReanimatedPackage(),
       new RNCWebViewPackage(),
       new RNFetchBlobPackage()
     ));

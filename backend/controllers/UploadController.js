@@ -1,13 +1,13 @@
 const multer = require('multer')
 const path = require('path')
 
-const UploadController = multer.diskStorage({
+exports.UploadController = multer.diskStorage({
 
     destination: function(req, file, cd){
         const files = req.files
 
         if(!files){
-            console.log("erro")
+            console.log("error")
             const error = new Error('Por favor escolha os arquivos')
             error.httpStatusCode = 400
             return error
@@ -24,5 +24,3 @@ const UploadController = multer.diskStorage({
     }    
     
 })
-
-module.exports = { UploadController }

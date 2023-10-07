@@ -3,6 +3,7 @@
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
+    <attr format="reference" name="nestedScrollViewStyle"/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
@@ -2746,6 +2747,13 @@
         <!-- Whether to automatically stack the buttons when there is not
              enough space to lay them out side-by-side. -->
         <attr format="boolean" name="allowStacking"/>
+    </declare-styleable>
+    <declare-styleable name="Capability">
+        <!-- Resource reference to the string array of query patterns for a custom capability. -->
+        <attr format="reference" name="queryPatterns"/>
+        <!-- Indicates whether a parameter in a capability template can only contain a matched
+             shortcut id and not an arbitrary string. -->
+        <attr format="boolean" name="shortcutMatchRequired"/>
     </declare-styleable>
     <declare-styleable name="ColorStateListItem">
         <!-- Base color for this state. -->

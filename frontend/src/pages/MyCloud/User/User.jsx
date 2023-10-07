@@ -1,30 +1,15 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 
-export default function SimpleMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
+const SimpleMenu = () => {
   const Exit = () => {
     window.location.href = "/Welcome";
   }
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <div>
-      <Button 
+      <button 
         aria-controls="simple-menu" 
         aria-haspopup="true" 
-        onClick={handleClick}
         style={{
             position: "absolute",
             right: 50,
@@ -33,24 +18,23 @@ export default function SimpleMenu() {
             borderRadius: "100px"
         }}
         >
-        <AccountCircle
+        {/* <AccountCircle
           style={{
             fontSize: "40px",
             color: "#1070FF"
           }}
-        />
-      </Button>
-      <Menu
+        /> */}
+      </button>
+      <nav
         id="simple-menu"
-        anchorEl={anchorEl}
         keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
       >
         {/*<MenuItem onClick={handleClose}>Profile</MenuItem>*/}
         {/*<MenuItem onClick={handleClose}>My account</MenuItem>*/}
-        <MenuItem onClick={{handleClose, Exit}}><a href="/">Sair</a></MenuItem>
-      </Menu>
+        {/* <MenuItem onClick={{handleClose, Exit}}><a href="/">Sair</a></MenuItem> */}
+      </nav>
     </div>
   );
 }
+
+export default SimpleMenu

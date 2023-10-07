@@ -18,6 +18,19 @@ export const NavCloud = styled.nav`
 
 export const Content = styled.div`
     margin: 120px 0 0 0;
+
+    .dropdown-upload{
+        position: fixed;
+        bottom: 25px;
+        right: 30px;
+        z-index: 10;
+    }
+
+    .dropdown-upload .menu-items-dropdown{
+        right: 0;
+        top: -105px;
+        padding: 10px;
+    }
 `
 
 export const LiFile = styled.li`

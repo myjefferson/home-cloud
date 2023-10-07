@@ -1,6 +1,6 @@
 const fs = require("fs")
 
-const CreateFolderController = (req, res) =>{
+exports.CreateFolderController = (req, res) =>{
     const { name, dirpage} = req.query
 
     console.log(name)
@@ -12,5 +12,3 @@ const CreateFolderController = (req, res) =>{
         //console.log("Erro ao criar pasta")
     }
 }
-
-module.exports = { CreateFolderController }
