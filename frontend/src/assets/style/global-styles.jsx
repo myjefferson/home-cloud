@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import gothamBold from '../fonts/gotham-bold.otf'
 import gothamExtralight from '../fonts/gotham-extralight.ttf'
 

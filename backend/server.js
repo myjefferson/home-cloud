@@ -1,64 +1,29 @@
 const express = require('express')
 const cors = require('cors')
 const checkDiskSpace = require('check-disk-space').default
-const multer = require('multer')
-const path = require('path')
-const rimraf = require('rimraf')
-const mime = require('mime');
 const dirTree = require("directory-tree")
-const formidable = require('formidable')
-const mysql = require('mysql')
-const { static } = require('express')
+const bodyParser = require('body-parser')
 const app = express()
-const axios = require('axios')
-const { Stream } = require('stream')
-const Sequelize = require('sequelize')
-const { User, Config } = require('./models/ConfigTables')
-const sequelize = require('./models/conection')
-const fsalt = require('fs').promises
 const fs = require('fs')
-const Sharp = require('sharp')
-
-const rotas = require("./routes");
 
 
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(cors({origin: '*'}))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 //Carrega as rotas
-app.use(rotas)
+//app.use(rotas)(app)
+
 
 app.get('/verifyInstall', (req,res) => {
-    Config.findAll({
-        raw: true,
-        attributes: ['installed']
-    }).then(installed => {
-        return installed != undefined 
-        ? res.json({installed: installed}) 
-        : res.json({installed: false})
-    })
-})
-
-//DATABASE
-app.post('/installSystem', (req, res) =>{
-    const { sizeStorage } = req.body
-    console.log(sizeStorage)
-
-    User.sync()
-    Config.sync()
-
-    Config.create({
-        //name: "Jefferson",
-        //email: "jcsjeffrey@gmail.com",
-        //password: 'password',
-        installed: 1,
-        diskSpace: sizeStorage
-    })
-})
-
-app.post('/login', (req, res) => {
-    
+    // Config.findAll({
+    //     raw: true,
+    //     attributes: ['installed']
+    // }).then(installed => {
+    //     return installed != undefined 
+    //     ? res.json({installed: installed}) 
+    //     : res.json({installed: false})
+    // })
 })
 
 /*(async () =>{
@@ -94,7 +59,9 @@ function Pasta(){
     }
 }Pasta();
 
-app.use(express.static('public'))
+//Routes
+require("./routes")(app);
+
 const server = app.listen(8080, () => {
-    console.log(`Server port: ${server.address().port}`)
+    console.log(`Running Server File Manager in Port: ${server.address().port}`);
 })

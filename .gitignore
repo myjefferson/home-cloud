@@ -2,12 +2,18 @@
 /backend/node_modules
 /frontend/node_modules
 /mobile/node_modules
+/mobile/android/app/buid
 
 #except yarn.lock
 /backend/yarn.lock
 /frontend/yarn.lock
 
+#except package-lock
+/backend/package-lock.json
+/frontend/package-lock.json
+
 #other except
+/mobile/
 /cloud/
 /.vscode/
 /.Trash-1000

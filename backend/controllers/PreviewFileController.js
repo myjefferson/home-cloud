@@ -1,45 +1,13 @@
+const { streamingMidia } = require('./StreamingMidiaController')
 const mimeTypes = require('../configs/mimeTypes')
 const fs = require('fs')
 const path = require("path")
 const Sharp = require('sharp')
 
-const streamingMidia = (request, response, typeMidia, mime, calldir) => {
-    const stream =      fs.createReadStream(calldir);
-    const stat =        fs.statSync(calldir)
-    const fileSize =    stat.size
-    const range =       request.headers.range
-
-    if(range){
-        const parts = range.replace(/bytes=/, "").split("-")
-        const start = parseInt(parts[0], 10)
-        const end = parts[1] ? parseInt(parts[1], 10) : fileSize-1
-        const chunksize = (end - start)+1
-        const file = fs.createReadStream(calldir, {start, end})
-
-        const head = {
-            'Content-Range':    `bytes ${start}-${end}/${fileSize}`,
-            'Accept-Ranges':    'bytes',
-            'Content-Length':   chunksize,
-            'Content-Type':     `${typeMidia}/${mime}`,
-        }
-
-        response.writeHead(206, head);
-        file.pipe(response);
-
-    }else{
-        const head = {
-            'Content-Length': fileSize,
-            'Content-Type': `${typeMidia}/${mime}`,
-        }
-
-        response.writeHead(206, head);
-        stream.pipe(response)
-    }
-}
-
-const PreviewFileController = (request, response) => {
+exports.PreviewFileController = (request, response) => {
     const { miniature, show } = request.query;
-    const calldir = path.join(__dirname + `../../../${show}`);
+    const dirDecript = atob(show);
+    const calldir = path.join(__dirname + `../../../${dirDecript}`);
     
     fs.access( calldir , (exists) => {
         if(!exists === true){
@@ -50,12 +18,12 @@ const PreviewFileController = (request, response) => {
             if( (miniature === 'true') && (mimeTypes.image.indexOf(extension) > -1) ){
                 const resize = Sharp({ failOnError: false }).resize(200).toFormat('jpeg') //Create miniature for images file
                 response.set('Content-Type', 'image/jpeg')
-                stream.pipe(resize).pipe(response)
+                return stream.pipe(resize).pipe(response)
 
             }else if( mimeTypes.image.indexOf(extension) > -1 ){
                 const resize = Sharp({ failOnError: false }).resize(900).toFormat('jpeg')
                 response.set('Content-Type', 'image/jpeg')
-                stream.pipe(resize).pipe(response)
+                return stream.pipe(resize).pipe(response)
 
             }else if( mimeTypes.audio.indexOf(extension) > -1 ){
                 streamingMidia(request, response, 'audio', extension, calldir);
@@ -65,8 +33,7 @@ const PreviewFileController = (request, response) => {
 
             }else if( mimeTypes.document.indexOf(extension) > -1 ){
                 response.set('Content-Type', `application/${extension}`)
-                stream.pipe(response)
-
+                return stream.pipe(response)
             }
         }else{
             response.json([{
@@ -76,5 +43,3 @@ const PreviewFileController = (request, response) => {
         }
     })
 }
-
-module.exports = { PreviewFileController }
