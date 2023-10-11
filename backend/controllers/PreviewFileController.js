@@ -26,10 +26,10 @@ exports.PreviewFileController = (request, response) => {
                 return stream.pipe(resize).pipe(response)
 
             }else if( mimeTypes.audio.indexOf(extension) > -1 ){
-                streamingMidia(request, response, 'audio', extension, calldir);
+                return streamingMidia(request, response, 'audio', extension, calldir);
 
             }else if( mimeTypes.video.indexOf(extension) > -1 ){
-                streamingMidia(request, response, 'video', extension, calldir);
+                return streamingMidia(request, response, 'video', extension, calldir);
 
             }else if( mimeTypes.document.indexOf(extension) > -1 ){
                 response.set('Content-Type', `application/${extension}`)
