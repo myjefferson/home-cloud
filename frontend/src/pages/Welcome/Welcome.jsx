@@ -34,7 +34,7 @@ export default function Welcome(){
                             <h3>A sua núvem em casa!</h3>
                         </div>
                         <div className='controls'>
-                            <a type="button" href="/cloud?dir=cloud">Entrar</a>
+                            <a type="button" href={`/cloud/${btoa('cloud')}`}>Entrar</a>
                             {/*<a type="button" href="/">Criar conta</a>*/}
                         </div>
                     </div>

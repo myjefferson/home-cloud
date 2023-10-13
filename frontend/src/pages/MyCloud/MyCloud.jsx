@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom';
 import uuid from 'react-uuid'; //temporary uuid
 import logoBlue from '../../assets/img/logo-home-cloud-blue.svg'
 //Api backend
@@ -16,8 +17,10 @@ import ButtonOptionsFile from '../../components/ButtonOptionsFile'
 import DialogPreview from '../../components/DialogPreview';
 
 const MyCloud = () => {
+    const { urlDirectory } = useParams();
+
     const arrayExtensionsVideo = ['mp4', 'avi']
-    const arrayExtensionsAudio = ['mp3', 'm4a']
+    const arrayExtensionsAudio = ['mp3', 'm4a', 'ogg']
     const arrayExtensionsImage = ['jpg', 'jpeg', 'png', 'svg']
 
     const [files, setFiles] = useState([]); 
@@ -31,12 +34,8 @@ const MyCloud = () => {
         preview: ""
     })
 
-    const currentURL = window.location.search
-    const params = new URLSearchParams(currentURL); 
-    const dirURL = params.get('dir');
-    
     const getFiles = () => {
-        api.get('/listfiles?dir='+dirURL).then(res => {
+        api.get('/listfiles?dir='+urlDirectory).then(res => {
             setFiles(res.data)
             setLoading('none');
         })
@@ -65,15 +64,16 @@ const MyCloud = () => {
         }, 2500)
     }, [])
 
-    //open next directory
-    function callDir(dir){
-        window.location.href = currentURL + dir
+    //open next folder
+    function exploreDirectory(folder){
+        const dirDecrypt = atob(urlDirectory)
+        window.location.href = `/cloud/${btoa(`${dirDecrypt}/${folder}`)}`
     }
 
 
     const mediaPreview = (name, extension, miniature = true) => {
         const clientId = localStorage.getItem('clientId')
-        const dirCript = btoa(`${ dirURL }/${ name }.${ extension }`);
+        const dirCript = btoa(`${ atob(urlDirectory) }/${ name }.${ extension }`);
         return `http://${ process.env.REACT_APP_HOSTNAME }:8080/preview?miniature=${ miniature }&show=${dirCript}&clientId=${clientId}`
     }
 
@@ -89,7 +89,7 @@ const MyCloud = () => {
                 </NavCloud>
 
                 <Content>
-                    <ButtonAddFiles files={files} dirURL={dirURL} />
+                    <ButtonAddFiles files={files} dirURL={urlDirectory} />
                     {/* <CircularIndeterminate display={loading}/> */}
 
                     <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-4'>
@@ -102,8 +102,8 @@ const MyCloud = () => {
                                                 <>                                                           
                                                     <div className="isolation">
                                                         <ButtonOptionsFile className="file-options" index={id} file={`${file.name}`} typeFile={`folder`}/>
-                                                        <button onClick={() => callDir("/"+file.name)} title={file.name}> 
-                                                            <img className="img-ext" src={`./img/extensions/${file.extension}.png`} alt=""/>
+                                                        <button onClick={() => exploreDirectory(file.name)} title={file.name}> 
+                                                            <img className="img-ext" src={`../img/extensions/${file.extension}.png`} alt=""/>
                                                         </button>
                                                         <p>{file.name}</p>
                                                     </div>
@@ -121,7 +121,7 @@ const MyCloud = () => {
                                                             {
                                                                 arrayExtensionsImage.indexOf(file.extension.toLowerCase()) > -1
                                                                 ?   <img className='img-ext img-miniature' src={ mediaPreview(file.name, file.extension) } alt="Imagem não encontrada"/>
-                                                                :   <img className="img-ext" src={`./img/extensions/${file.extension}.png`} alt=""/>
+                                                                :   <img className="img-ext" src={`../img/extensions/${file.extension}.png`} alt=""/>
                                                             }                                                                              
                                                         </button>                                                           
                                                         <p>{file.name}</p>

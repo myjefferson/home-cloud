@@ -4,15 +4,15 @@ import api from '../services/api'
 import Dropdown from './Dropdown/Dropdown';
 import Modal from './Modal/Modal';
 import { PlusIcon, FolderPlusIcon, DocumentPlusIcon } from '@heroicons/react/24/outline';
+import { useParams } from 'react-router-dom';
 
 //ICONS
 
 export default function ButtonAddFiles(files, setFiles) {   
+  const { urlDirectory } = useParams();
+  const dirDecrypt = atob(urlDirectory)
+
   const [openModal, setOpenModal] = useState(false);
-  //Current URL
-  const currentURL = window.location.search
-  const params = new URLSearchParams(currentURL); 
-  const dirURL = params.get('dir');
   
   //Upload File--
   const fileElement = useRef(null)
@@ -26,7 +26,7 @@ export default function ButtonAddFiles(files, setFiles) {
         dataForm.append('files', file)
       }
 
-      await api.post('upload?dirpage=' + dirURL, dataForm, {
+      await api.post(`upload?directory=${dirDecrypt}`, dataForm, {
           headers: {
               "Content-Type": `mutipart/form-data; boundary=${dataForm._boundary}`
           }
@@ -41,7 +41,7 @@ export default function ButtonAddFiles(files, setFiles) {
   const [nameFolder, setNameFolder] = useState('')
   const makeFolder = async() =>{
     if(nameFolder !== ""){
-      await api.post('createFolder?dirpage='+dirURL+"&name="+nameFolder).then(res => {
+      await api.post(`createFolder?dirpage=${dirDecrypt}&name=${nameFolder}`).then(res => {
         console.log("pasta criada")
       }).catch(error => {
         console.log("Falha ao criar a pasta")

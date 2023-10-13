@@ -30,7 +30,7 @@ const RoutesApp = () => {
             <AuthProvider>
                 <Routes>
                     <Route element={ <Installer/> } exact path="/installer" />
-                    <Route element={ <Private> <MyCloud/> </Private> } path="/cloud" />
+                    <Route element={ <Private> <MyCloud/> </Private> } path="/cloud/:urlDirectory" />
                     <Route element={ <Private> <SignIn/> </Private> } path="/signIn" />
                     <Route element={ <Private> <SignUp/> </Private> } path="/signUp" />
                     <Route element={ <Private> <Welcome/> </Private> } path="/" />
