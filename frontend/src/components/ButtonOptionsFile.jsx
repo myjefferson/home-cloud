@@ -6,30 +6,30 @@ import Dropdown from './Dropdown/Dropdown';
 //Server-Side API
 import api from '../services/api'
 import startDownload from 'js-file-download'
+import { useParams } from 'react-router-dom';
+
+//Components
 import Modal from './Modal/Modal';
 
-//ICONS
+//Icons
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid';
 
 
 const ButtonOptionsFile = (props) => {
+    const { urlDirectory } = useParams();
+    const dirDecrypt = atob(urlDirectory)
     const [openModal, setOpenModal] = useState(false);
 
-    //url get dir
-    const currentURL = window.location.search
-    const params = new URLSearchParams(currentURL); 
-    const dirURL = params.get('dir');
-
     const handleDownloadFile = async (file) => {
-        await api.get(`/download?dirpage=${dirURL}/${file}&filename=${file}`, {
+        await api.get(`/download?directory=${btoa(`${dirDecrypt}/${file}`)}&filename=${btoa(file)}`, {
             responseType: 'blob',             
         }).then((res) => { startDownload(res.data, file); })
     }
 
     const handleDeleteFile = async (file) => {
         setOpenModal(false)
-        const dirCript = btoa(`${dirURL}/${file}`)
-        await api.delete(`/delete?dirpage=${dirCript}`)
+        const dirCript = btoa(`${atob(urlDirectory)}/${file}`)
+        await api.delete(`/delete?directory=${dirCript}`)
         .then((res) => { console.log(res) })
     }
 

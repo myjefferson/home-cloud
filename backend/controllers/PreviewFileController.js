@@ -6,8 +6,8 @@ const Sharp = require('sharp')
 
 exports.PreviewFileController = (request, response) => {
     const { miniature, show } = request.query;
-    const dirDecript = atob(show);
-    const calldir = path.join(__dirname + `../../../${dirDecript}`);
+    const dirDecrypt = atob(show);
+    const calldir = path.join(__dirname + `../../../${dirDecrypt}`);
     
     fs.access( calldir , (exists) => {
         if(!exists === true){
@@ -26,10 +26,10 @@ exports.PreviewFileController = (request, response) => {
                 return stream.pipe(resize).pipe(response)
 
             }else if( mimeTypes.audio.indexOf(extension) > -1 ){
-                return streamingMidia(request, response, 'audio', extension, calldir);
+                streamingMidia(request, response, 'audio', extension, calldir);
 
             }else if( mimeTypes.video.indexOf(extension) > -1 ){
-                return streamingMidia(request, response, 'video', extension, calldir);
+                streamingMidia(request, response, 'video', extension, calldir);
 
             }else if( mimeTypes.document.indexOf(extension) > -1 ){
                 response.set('Content-Type', `application/${extension}`)

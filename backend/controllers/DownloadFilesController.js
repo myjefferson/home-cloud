@@ -2,13 +2,15 @@ const fs = require("fs")
 const mime = require('mime');
 
 exports.DownloadFilesController = (req, res) => {
-    const {dirpage, fileName} = req.query
+    const {directory, filename} = req.query
+    const dirDecrypt = atob(directory)
+    const fileNameDecrypt = atob(filename)
     
     try{
-        const fileURL = `../${dirpage}`
+        const fileURL = `../${dirDecrypt}`
         const mimetype = mime.lookup(fileURL)
         res.set({
-            'Content-Disposition': `attachment; filename="${fileName}"`,
+            'Content-Disposition': `attachment; filename="${fileNameDecrypt}"`,
             'Content-Type': mimetype,
         })
 

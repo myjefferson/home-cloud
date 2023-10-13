@@ -13,7 +13,7 @@ exports.UploadController = multer.diskStorage({
             return error
         }
 
-        cd( null, path.resolve( '../', req.query.dirpage ))
+        cd( null, path.resolve( '../', req.query.directory ))
         //console.log(`filename: ${path.basename(file.originalname)} uploaded`)
     },
 
